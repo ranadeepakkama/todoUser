@@ -1,6 +1,15 @@
 *{
     box-sizing: border-box;
 }
+.register-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom, rgb(142, 207, 251),rgb(254, 191, 74),rgb(251, 251, 170));
+}
 
 .register-form{
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
@@ -10,7 +19,7 @@
     height: 50vh;
     text-align: start;
     border-radius: 6px;
-    background-color: rgb(247, 232, 196);
+    background-color: transparent;
 }
 
 .register-input{

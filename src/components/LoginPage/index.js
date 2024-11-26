@@ -34,7 +34,6 @@ const Login = () => {
     const url = 'https://todoserver-k4hr.onrender.com'
     const onSubmitForm = async (e) => {
         e.preventDefault();
-
         try {
             const response = await axios.post(`${url}/login`, {
                 username: user,
@@ -52,39 +51,50 @@ const Login = () => {
             console.error('Error logging in:', err);
             setError('Failed to log in. Please check your username and password.');
         }
+        setUser('')
+        setPasswd('')
     };
+
+    console.log(user)
 
     return (
         <div className="main-container">
-            <h1 className='text-align-center pb-2' style={{ fontSize: '25px', fontFamily: 'Arial' }}>Login Page</h1>
-            <div className="form-container">
-                <form className="form" onSubmit={onSubmitForm}>
-                    <div>
-                        <input 
-                            id="username" 
-                            onChange={onChangeUser} 
-                            value={user} 
-                            type="text" 
-                            className="user-input" 
-                            placeholder="Username"
-                        /> 
+            <div className='d-flex justify-content-between align-items-center p-3' style={{width:'60vw'}}>
+                <div className='text-center p-3' style={{height:'20vh'}}>
+                    <h1 style={{color:'#fff', fontFamily:'serif', fontSize:'50px'}}>Welcome To <br/> <span>ToDo</span></h1>
+                </div>
+                <div style={{left: '50%', top: '0px', bottom: '0px',height:'190px', borderLeft: '1px solid black'}}></div>
+                <div>
+                    <div className="form-container">
+                        <form className="form" onSubmit={onSubmitForm}>
+                            <div>
+                                <input 
+                                    id="username" 
+                                    onChange={onChangeUser} 
+                                    value={user} 
+                                    type="text" 
+                                    className="user-input" 
+                                    placeholder="Username"
+                                /> 
+                            </div>
+                            <div>
+                                <input 
+                                    id="password" 
+                                    onChange={onChangePassword} 
+                                    value={passwd} 
+                                    type="password" 
+                                    className="user-input" 
+                                    placeholder="Password"
+                                /> 
+                            </div>
+                            <div className="btn-container d-flex justify-content-center align-items-center mt-3">
+                                <button type="submit" className="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                        <div className='p-2' style={{marginLeft:'27px',color:'#fff', fontFamily:'serif'}}>
+                            {error ? (<p className="error-message">{error} For new user <a href='/register'> sign_in</a></p>):(<p>New user <a href='/register'>Sign_in</a></p>)}
+                        </div>
                     </div>
-                    <div>
-                        <input 
-                            id="password" 
-                            onChange={onChangePassword} 
-                            value={passwd} 
-                            type="password" 
-                            className="user-input" 
-                            placeholder="Password"
-                        /> 
-                    </div>
-                    <div className="btn-container d-flex justify-content-center align-items-center">
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                    </div>
-                </form>
-                <div className='pt-2'>
-                    {error && <p className="error-message">{error} For new user <a href='/register'>sign_in</a></p>}
                 </div>
             </div>
         </div>

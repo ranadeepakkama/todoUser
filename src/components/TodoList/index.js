@@ -9,8 +9,12 @@ const TodoList = () => {
     const [todo, setTodo] = useState('');
     const [status, setStatus] = useState('');
     const [todos, setTodos] = useState([]);
+    const [filterTodos, setFilterTodos] = useState([])
+    const [editTodo, setEditTodo] = useState('');
+    const [editStatus, setEditStatus] = useState('');
     const [editId, setEditId] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [filter, setFilter] = useState('')
     const url = 'https://todoserver-k4hr.onrender.com';
     const userId = Cookies.get('user_id');
     const token = Cookies.get('jwt_token');
@@ -18,8 +22,11 @@ const TodoList = () => {
     const getApiData = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(`${url}/todoList/${userId}`);
+            const response = await axios.get(`${url}/todoList/${userId}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
             setTodos(response.data.todos);
+            setFilterTodos(response.data.todos)
         } catch (error) {
             console.error('Error fetching todos:', error);
         } finally {
@@ -52,21 +59,30 @@ const TodoList = () => {
     };
 
     const onClickUpdate = async (id) => {
+        if (!editTodo.trim() || !editStatus.trim()) {
+            alert('Task and status cannot be empty!');
+            return;
+        }
+        setLoading(true);
         try {
-            await axios.put(`${url}/updateTodo/${id}`, {
-                task: todo,
-                status: status
-            });
-            setEditId(null); // Clear edit mode
-            setTodo('');
-            setStatus('');
-            await getApiData(); 
+            await axios.put(
+                `${url}/updateTodo/${id}`,
+                { task: editTodo, status: editStatus },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            setEditId(null);
+            setEditTodo('');
+            setEditStatus('');
+            getApiData();
         } catch (err) {
             console.error('Error updating todo:', err);
+        } finally {
+            setLoading(false);
         }
     };
 
     const onClickDelete = async (id) => {
+        setLoading(true);
         try {
             await axios.delete(`${url}/deleteTodo/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -74,74 +90,124 @@ const TodoList = () => {
             getApiData();
         } catch (err) {
             console.error('Error deleting todo:', err);
+        } finally {
+            setLoading(false);
         }
     };
 
+    const onChangeFilter = e => {
+        const filterData = e.target.value;
+        setFilter(filterData)
+        if (filterData){
+            const result  = todos.filter(data => data.status === filterData)
+            setFilterTodos(result)
+        }else{
+            setFilterTodos(todos)
+        }
+    }
     return (
         <div className="todo-container">
-            <form onSubmit={handleSubmit} className="text-center p-3">
+            <form onSubmit={handleSubmit} className="text-center p-3" style={{fontFamily:'serif'}}>
                 <input
+                    className="todo-input"
                     type="text"
                     placeholder="Enter todo"
                     value={todo}
                     onChange={(e) => setTodo(e.target.value)}
                     style={{ width: '50vw', marginRight: '10px' }}
                 />
-                <input
-                    type="text"
-                    placeholder="Enter status"
+                <select
+                    name="status"
+                    className="todo-input"
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
-                />
-                <button type="submit" className="btn btn-primary mb-1">Submit</button>
+                >
+                    <option value="">Select Status</option>
+                    <option value="done">Done</option>
+                    <option value="pending">Pending</option>
+                    <option value="in-progress">In Progress</option>
+                </select>
+
+                <button type="submit" className="btn btn-primary mb-1">
+                    Submit
+                </button>
+                    <select
+                        name="filter"
+                        className="filter-input"
+                        value={filter}
+                        onChange={onChangeFilter}
+                    >
+                        <option value="">filter</option>
+                        <option value="done">Done</option>
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                    </select>
             </form>
 
             {loading ? (
-                <p className='text-center'>Loading...</p>
+                <p className="text-center">Loading...</p>
             ) : (
                 <div className="todo-list">
-                {todos.length > 0 ? (
-                    <ul>
-                        {todos.map((eachItem) => (
-                            <li key={eachItem._id}>
-                                <div className="todo-item">
-                                    <input
-                                        style={{ width: '70vw' }}
-                                        type="text"
-                                        value={eachItem._id === editId ? todo : eachItem.task}
-                                        onChange={(e) => setTodo(e.target.value)}
-                                    />
-                                    <p className='pt-3 text-center' style={{width:'120px'}}>{eachItem.status}</p>
-                                    <button type='button' className="icon-btn" onClick={() => onClickDelete(eachItem._id)}><MdOutlineDelete /></button>
-                                    <button
-                                        type="button"
-                                        onClick={() => {
-                                            setEditId(eachItem._id);
-                                            setTodo(eachItem.task); // Set task for editing
-                                            setStatus(eachItem.status); // Set status for editing
-                                        }}
-                                        className="icon-btn"
-                                    >
-                                        <FaRegEdit />
-                                    </button>
-
-                                    {eachItem._id === editId && (
-                                        <button
-                                            type="button"
-                                            onClick={() => onClickUpdate(eachItem._id)}
-                                            className="btn btn-secondary"
-                                        >
-                                            Save
-                                        </button>
-                                    )}
-                                </div>
-                            </li>
-                        ))}
-                    </ul>
-                ) : (
-                    <p>No todo item is available</p>
-                )}
-            </div>
+                    {filterTodos.length > 0 ? (
+                        <ul>
+                            {filterTodos.map((eachItem) => (
+                                <li key={eachItem._id}>
+                                    <div className="todo-item">
+                                        {eachItem._id === editId ? (
+                                            <>
+                                                <input
+                                                    className="todo-input"
+                                                    type="text"
+                                                    value={editTodo}
+                                                    onChange={(e) => setEditTodo(e.target.value)}
+                                                    style={{ width: '50%' }}
+                                                />
+                                                <select
+                                                    className="todo-input"
+                                                    value={editStatus || eachItem.status}
+                                                    onChange={(e) => setEditStatus(e.target.value)}
+                                                >
+                                                    <option value="done">Done</option>
+                                                    <option value="pending">Pending</option>
+                                                    <option value="in-progress">In Progress</option>
+                                                </select>
+                                                <button
+                                                    className="btn btn-secondary"
+                                                    onClick={() => onClickUpdate(eachItem._id)}
+                                                >
+                                                    Save
+                                                </button>
+                                            </>
+                                        ) : (
+                                            <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
+                                                <p className='prg-task' style={{width:'65%'}}>{eachItem.task}</p>
+                                                <p className='prg-task' style={{width:'25%'}}>Status: {eachItem.status}</p>
+                                                <button
+                                                    className="icon-btn"
+                                                    onClick={() => {
+                                                        setEditId(eachItem._id);
+                                                        setEditTodo(eachItem.task);
+                                                        setEditStatus(eachItem.status);
+                                                    }}
+                                                >
+                                                    <FaRegEdit />
+                                                </button>
+                                                <button
+                                                    className="icon-btn"
+                                                    onClick={() => onClickDelete(eachItem._id)}
+                                                >
+                                                    <MdOutlineDelete />
+                                                </button>
+                                            </div>
+                                        )}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>No todo items are available</p>
+                    )}
+                </div>
             )}
         </div>
     );

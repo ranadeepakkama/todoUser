@@ -1,11 +1,33 @@
+*{
+    box-sizing: border-box;
+}
 .todo-container{
     width: 100vw;
     height: 100vh;
     background-color: rgb(251, 246, 239);
     margin-top: 14px;
+    background-image: url('https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg');
+    background-size: cover;
+}
+.filter-input{
+    margin-left: 10px;
+    height: 37px;
+    padding-left:4px;
+    font-size: 100%;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 5px;
+    width: 80px;
 }
 li{
     list-style-type: none;
+}
+.prg-task{
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: rgb(221, 231, 253);
+
 }
 
 input{
@@ -18,10 +40,15 @@ input{
     border-width: 0px;
     background-color: transparent;
 }
+.todo-input{
+    padding: 5px;
+}
 .todo-list{
     padding: 18px;
     border-radius: 5px;
-    margin: 25px;
+    margin: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
     background-color: rgb(209, 249, 250);
 }

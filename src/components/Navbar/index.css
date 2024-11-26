@@ -1,6 +1,8 @@
 .navbar{
     padding: 14px;
-    background-color: rgb(209, 249, 250);
+    background-image: url('https://cdn.vectorstock.com/i/1000v/13/40/todo-list-seamless-pattern-universal-background-vector-7561340.jpg');
+    background-size: cover;
+    font-family: serif;
 }
 img{
     width: 40px;
@@ -15,11 +17,14 @@ img{
     justify-content: space-around;
     align-items: center;
     border-radius: 6px;
-    background-color: rgb(247, 236, 222);
+    background-color: transparent;
+    box-shadow:2px 4px 10px rgba(0, 0, 0, 0.45);
 }
 .logout{
     border-width: 0px;
     height: 40px;
     border-radius: 5px;
     padding: 8px;
+    margin-right: 10px;
+    font-weight: bold;
 }

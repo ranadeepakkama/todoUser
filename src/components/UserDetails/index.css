@@ -7,7 +7,20 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: rgb(248, 248, 231);
+    background-color: transparent;
     border-radius: 6px;
     box-shadow:2px 4px 10px rgba(0, 0, 0, 0.25);
+    margin-bottom: 200px;
+    color: #fff;
+}
+
+.user-detail-main-container{
+    background-image: url('https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg');
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: top;
 }
