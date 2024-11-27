@@ -67,9 +67,6 @@ input{
     select {
         font-size: 15px;
     }
-    .todo-list-container{
-        border: solid black 1px;
-    }
     .todo-list{
         display: flex;
         flex-direction: column;

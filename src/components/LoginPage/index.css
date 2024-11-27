@@ -66,6 +66,7 @@ a{
         align-items: center;
         height: 70vh;
         width: 100vw;
+        padding: 10px;
     }
     .vertical-line{
         display: none;
@@ -75,5 +76,8 @@ a{
     }
     .form-container{
         width: 80vw;
+    }
+    .user-input{
+        width: 75vw;
     }
 }
