@@ -21,7 +21,7 @@ const Register = () =>{
             navigate('/')
         }
     })
-    const url = "https://todoserver-k4hr.onrender.com"; 
+    const url = "https://todouser-qemo.onrender.com"; 
     const onSubmitForm = async (e) => {
         e.preventDefault() 
         try{
