@@ -75,4 +75,7 @@ input{
         width: 80vw;
         margin-left: 40px;
     }
+    .prg-task{
+        font-size: 10px;
+    }
 }
