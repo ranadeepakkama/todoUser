@@ -29,4 +29,12 @@
     .user-container{
         width: 50vw;
     }
+    .user-detail-main-container{
+        width: 100vw;
+        height: 100vh;
+        background-image: url('https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
 }
