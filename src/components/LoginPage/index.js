@@ -57,11 +57,11 @@ const Login = () => {
 
     return (
         <div className="main-container">
-            <div className='d-flex justify-content-between align-items-center p-3' style={{width:'60vw'}}>
+            <div className='cart d-flex justify-content-between align-items-center p-3' style={{width:'60vw'}}>
                 <div className='text-center p-3' style={{height:'20vh'}}>
-                    <h1 style={{color:'#fff', fontFamily:'serif', fontSize:'50px'}}>Welcome To <br/> <span>ToDo</span></h1>
+                    <h1 className='header' style={{color:'#fff', fontFamily:'serif', fontSize:'50px'}}>Welcome To <br/> <span>ToDo</span></h1>
                 </div>
-                <div style={{left: '50%', top: '0px', bottom: '0px',height:'30vh', borderLeft: '1px solid black'}}></div>
+                <div className='vertical-line' style={{left: '50%', top: '0px', bottom: '0px',height:'30vh', borderLeft: '1px solid black'}}></div>
                 <div>
                     <div className="form-container">
                         <form className="form" onSubmit={onSubmitForm}>

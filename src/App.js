@@ -4,7 +4,7 @@ import HomePage from './components/HomePage';
 import Register from './components/RegisterPage';
 import UserDetails from './components/UserDetails';
 import { UserProvider } from './context/userContext';
-import ProtectedRoute from './components/ProtectedRoute';
+//import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => (
   <div>
@@ -12,7 +12,16 @@ const App = () => (
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
-        <Route 
+        <Route path="/" element={<HomePage />} />
+        <Route path='/UserDetails' element={<UserDetails />} />
+      </Routes>
+    </UserProvider>
+  </div>
+);
+
+export default App;
+
+/* <Route 
           path='/' 
           element={
             <ProtectedRoute>
@@ -27,10 +36,4 @@ const App = () => (
               <UserDetails />
             </ProtectedRoute>
           } 
-        />
-      </Routes>
-    </UserProvider>
-  </div>
-);
-
-export default App;
+        /> */

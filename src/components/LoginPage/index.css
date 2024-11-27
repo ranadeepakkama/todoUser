@@ -54,3 +54,26 @@ a{
 .error-message{
     font-size: 12px;
 }
+
+@media screen and (max-width: 760px) {
+    .main-container{
+        font-family: serif;
+    }
+    .cart{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 70vh;
+        width: 100vw;
+    }
+    .vertical-line{
+        display: none;
+    }
+    .header{
+        font-size: 10px;
+    }
+    .form-container{
+        width: 80vw;
+    }
+}

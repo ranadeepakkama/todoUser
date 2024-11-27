@@ -58,7 +58,7 @@ const Register = () =>{
                     <input type='password' required className='register-input' id='register-password' onChange={e => setPassword(e.target.value)} placeholder='Enter Password'/>
                 </div>
                 <div>
-                    <button type='submit' className='btn btn-primary mt-2' style={{width:'10vw'}}>Submit</button>
+                    <button type='submit' className='btn btn-primary mt-2'>Submit</button>
                 </div>
                 {registerStatus ? (<p>{registerStatus}</p>): (<p style={{cursor:'pointer', color:'blue'}} onClick={onClickLogin}>login</p>)}
             </form>

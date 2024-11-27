@@ -59,3 +59,16 @@ input{
     justify-content: space-between;
     align-items: center;
 }
+
+@media screen and (max-width: 768px){
+    .filter-input{
+        margin-top: 10px;
+    }
+    .todo-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        border: solid black 1px;
+    }
+}
