@@ -16,7 +16,6 @@ const Register = () =>{
     const onClickLogin = () => {
         navigate('/login')
     }
-
     useEffect(() => {
         if(jwtToken){
             navigate('/')
@@ -68,4 +67,3 @@ const Register = () =>{
 } 
 
 export default Register 
-
