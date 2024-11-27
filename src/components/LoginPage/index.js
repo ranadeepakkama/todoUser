@@ -55,8 +55,6 @@ const Login = () => {
         setPasswd('')
     };
 
-    console.log(user)
-
     return (
         <div className="main-container">
             <div className='d-flex justify-content-between align-items-center p-3' style={{width:'60vw'}}>
@@ -92,7 +90,7 @@ const Login = () => {
                             </div>
                         </form>
                         <div className='p-2' style={{marginLeft:'27px',color:'#fff', fontFamily:'serif'}}>
-                            {error ? (<p className="error-message">{error} For new user <a href='/register'> sign_in</a></p>):(<p>New user <a href='/register'>Sign_in</a></p>)}
+                            {error ? (<p className="error-message">{error} For new user <span onClick={() => navigate('/register')}> sign_in</span></p>):(<p>New user <span onClick={() => navigate('/register')}>Sign_in</span></p>)}
                         </div>
                     </div>
                 </div>

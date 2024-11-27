@@ -21,7 +21,7 @@ const Register = () =>{
             navigate('/')
         }
     })
-    const url = "https://todouser-qemo.onrender.com"; 
+    const url = "https://todoserver-k4hr.onrender.com"; 
     const onSubmitForm = async (e) => {
         e.preventDefault() 
         try{
@@ -29,8 +29,8 @@ const Register = () =>{
                 username: name,
                 email: email,
                 password: password
-                }
-            )
+            });
+            
             console.log('New User Register', response.data);
             setRegisterStatus('New User Registed');
             if(response.status === 201){
