@@ -64,11 +64,18 @@ input{
     .filter-input{
         margin-top: 10px;
     }
+    select {
+        font-size: 15px;
+    }
+    .todo-list-container{
+        border: solid black 1px;
+    }
     .todo-list{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        border: solid black 1px;
+        width: 80vw;
+        margin-left: 40px;
     }
 }

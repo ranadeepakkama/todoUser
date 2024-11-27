@@ -144,71 +144,73 @@ const TodoList = () => {
                     </select>
             </form>
 
-            {loading ? (
-                <p className="text-center">Loading...</p>
-            ) : (
-                <div className="todo-list">
-                    {filterTodos.length > 0 ? (
-                        <ul>
-                            {filterTodos.map((eachItem) => (
-                                <li key={eachItem._id}>
-                                    <div className="todo-item">
-                                        {eachItem._id === editId ? (
-                                            <>
-                                                <input
-                                                    className="todo-input"
-                                                    type="text"
-                                                    value={editTodo}
-                                                    onChange={(e) => setEditTodo(e.target.value)}
-                                                    style={{ width: '50%' }}
-                                                />
-                                                <select
-                                                    className="todo-input"
-                                                    value={editStatus || eachItem.status}
-                                                    onChange={(e) => setEditStatus(e.target.value)}
-                                                >
-                                                    <option value="done">Done</option>
-                                                    <option value="pending">Pending</option>
-                                                    <option value="in-progress">In Progress</option>
-                                                </select>
-                                                <button
-                                                    className="btn btn-secondary"
-                                                    onClick={() => onClickUpdate(eachItem._id)}
-                                                >
-                                                    Save
-                                                </button>
-                                            </>
-                                        ) : (
-                                            <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
-                                                <p className='prg-task' style={{width:'65%'}}>{eachItem.task}</p>
-                                                <p className='prg-task' style={{width:'25%'}}>Status: {eachItem.status}</p>
-                                                <button
-                                                    className="icon-btn"
-                                                    onClick={() => {
-                                                        setEditId(eachItem._id);
-                                                        setEditTodo(eachItem.task);
-                                                        setEditStatus(eachItem.status);
-                                                    }}
-                                                >
-                                                    <FaRegEdit />
-                                                </button>
-                                                <button
-                                                    className="icon-btn"
-                                                    onClick={() => onClickDelete(eachItem._id)}
-                                                >
-                                                    <MdOutlineDelete />
-                                                </button>
-                                            </div>
-                                        )}
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>No todo items are available</p>
-                    )}
-                </div>
-            )}
+            <div className='todo-list-container'>
+                {loading ? (
+                    <p className="text-center">Loading...</p>
+                ) : (
+                    <div className="todo-list">
+                        {filterTodos.length > 0 ? (
+                            <ul>
+                                {filterTodos.map((eachItem) => (
+                                    <li key={eachItem._id}>
+                                        <div className="todo-item">
+                                            {eachItem._id === editId ? (
+                                                <>
+                                                    <input
+                                                        className="todo-input"
+                                                        type="text"
+                                                        value={editTodo}
+                                                        onChange={(e) => setEditTodo(e.target.value)}
+                                                        style={{ width: '50%' }}
+                                                    />
+                                                    <select
+                                                        className="todo-input"
+                                                        value={editStatus || eachItem.status}
+                                                        onChange={(e) => setEditStatus(e.target.value)}
+                                                    >
+                                                        <option value="done">Done</option>
+                                                        <option value="pending">Pending</option>
+                                                        <option value="in-progress">In Progress</option>
+                                                    </select>
+                                                    <button
+                                                        className="btn btn-secondary"
+                                                        onClick={() => onClickUpdate(eachItem._id)}
+                                                    >
+                                                        Save
+                                                    </button>
+                                                </>
+                                            ) : (
+                                                <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
+                                                    <p className='prg-task' style={{width:'65%'}}>{eachItem.task}</p>
+                                                    <p className='prg-task' style={{width:'25%'}}>Status: {eachItem.status}</p>
+                                                    <button
+                                                        className="icon-btn"
+                                                        onClick={() => {
+                                                            setEditId(eachItem._id);
+                                                            setEditTodo(eachItem.task);
+                                                            setEditStatus(eachItem.status);
+                                                        }}
+                                                    >
+                                                        <FaRegEdit />
+                                                    </button>
+                                                    <button
+                                                        className="icon-btn"
+                                                        onClick={() => onClickDelete(eachItem._id)}
+                                                    >
+                                                        <MdOutlineDelete />
+                                                    </button>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>No todo items are available</p>
+                        )}
+                    </div>
+                )}
+            </div>
         </div>
     );
 };
