@@ -59,6 +59,12 @@ input{
     justify-content: space-between;
     align-items: center;
 }
+.loader{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
 
 @media screen and (max-width: 768px){
     .todo-container{
