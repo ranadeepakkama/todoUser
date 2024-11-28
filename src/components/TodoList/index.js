@@ -147,7 +147,7 @@ const TodoList = () => {
 
             <div className='todo-list-container'>
                 {loading ? (
-                    <div className='loader'>
+                    <div className='loader' style={{textAlign:'center'}}>
                         <Rings
                             height="75"
                             width="75"
