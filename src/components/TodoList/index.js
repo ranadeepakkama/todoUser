@@ -144,10 +144,9 @@ const TodoList = () => {
                         <option value="in-progress">In Progress</option>
                     </select>
             </form>
-
             <div className='todo-list-container'>
                 {loading ? (
-                    <div className='loader' style={{textAlign:'center'}}>
+                    <div className='loader'>
                         <Rings
                             height="75"
                             width="75"
