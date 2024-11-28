@@ -33,7 +33,7 @@ const App = () => (
       </Routes>
     </UserProvider>
   </div>
-);
+)
 
 export default App;
 
