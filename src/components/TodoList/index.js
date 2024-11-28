@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
+import { Audio } from 'react-loader-spinner'
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import './index.css';
@@ -146,7 +147,17 @@ const TodoList = () => {
 
             <div className='todo-list-container'>
                 {loading ? (
-                    <p className="text-center">Loading...</p>
+                    <div>
+                        <Audio
+                            height="80"
+                            width="80"
+                            radius="9"
+                            color="green"
+                            ariaLabel="loading"
+                            wrapperStyle
+                            wrapperClass
+                        />
+                    </div>
                 ) : (
                     <div className="todo-list">
                         {filterTodos.length > 0 ? (
