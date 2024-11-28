@@ -89,12 +89,13 @@ const Login = () => {
                                 <button type="submit" className="btn btn-primary">Submit</button>
                             </div>
                         </form>
-                        <div className='p-2' style={{marginLeft:'27px',color:'#fff', fontFamily:'serif'}}>
+                        <div className='p-2' style={{marginLeft:'27px', color:'#fff', fontFamily:'serif'}}>
                             {error ? (<p className="error-message">{error} For new user <span onClick={() => navigate('/register')}> sign_in</span></p>):(<p>New user <span onClick={() => navigate('/register')}>Sign_in</span></p>)}
                         </div>
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };

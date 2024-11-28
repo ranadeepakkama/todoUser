@@ -37,7 +37,7 @@ const UserDetails = () => {
         <div>
             <Navbar />
             <div className="user-detail-main-container d-flex flex-column justify-content-center align-items-center mt-3">
-                <h1 style={{ fontFamily:'serif', color:'#fffff'}}>User Details</h1>
+                <h1 style={{ fontFamily: 'serif', color: '#ffffff' }}>User Details</h1>
                 <div className="user-container text-start mt-1">
                     <div>
                         <img 

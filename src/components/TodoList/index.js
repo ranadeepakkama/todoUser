@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineDelete } from "react-icons/md";
-import { Audio } from 'react-loader-spinner'
+import { Rings } from 'react-loader-spinner'
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import './index.css';
@@ -147,15 +147,13 @@ const TodoList = () => {
 
             <div className='todo-list-container'>
                 {loading ? (
-                    <div>
-                        <Audio
-                            height="80"
-                            width="80"
+                    <div className='loader'>
+                        <Rings
+                            height="65"
+                            width="65"
                             radius="9"
                             color="green"
                             ariaLabel="loading"
-                            wrapperStyle
-                            wrapperClass
                         />
                     </div>
                 ) : (
@@ -193,7 +191,7 @@ const TodoList = () => {
                                             ) : (
                                                 <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
                                                     <p className='prg-task' style={{width:'65%'}}>{eachItem.task}</p>
-                                                    <p className='prg-task' style={{width:'25%'}}>Status: {eachItem.status}</p>
+                                                    <p className='prg-task' style={{width:'25%'}}>{eachItem.status}</p>
                                                     <button
                                                         className="icon-btn"
                                                         onClick={() => {
