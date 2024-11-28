@@ -1,0 +1,24 @@
+.notfound-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width:768px){
+    .notfound-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 20px;
+    }
+    .notfound-img{
+        width: 80vw;
+        height: 50vh;
+    }
+}

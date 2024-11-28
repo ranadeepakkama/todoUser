@@ -20,7 +20,7 @@ const Navbar = () => {
                 <button type="button" className="logout bg-info text-white" onClick={onClickLogout}>Logout</button>
                 <div className="user-content" onClick={onClickUserContainer}>
                     <img className="img" src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o=" alt="user-img"/>
-                    <p className="pt-3" style={{fontSize:'20px'}}>{user}</p>
+                    <p className="pt-3 user-name" style={{fontSize:'20px'}}>{user}</p>
                 </div>
             </div>
             

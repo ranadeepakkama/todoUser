@@ -87,7 +87,7 @@ input{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         width: 80vw;
         margin-left: 40px;
     }

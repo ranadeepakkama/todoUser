@@ -40,6 +40,9 @@ img{
         align-items: center;
         padding: 0px;
     }
+    .user-name{
+        font-size: 14px;
+    }
     .user-content{
         width: 25vw;
         margin: 5px;

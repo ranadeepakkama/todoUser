@@ -3,6 +3,7 @@ import Login from "./components/LoginPage";
 import HomePage from './components/HomePage';
 import Register from './components/RegisterPage';
 import UserDetails from './components/UserDetails';
+import NotFound from './components/NotFound';
 import { UserProvider } from './context/userContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -28,6 +29,7 @@ const App = () => (
             </ProtectedRoute>
           } 
         />
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </UserProvider>
   </div>
