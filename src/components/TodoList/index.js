@@ -148,8 +148,8 @@ const TodoList = () => {
                 {loading ? (
                     <div className='loader'>
                         <Rings
-                            height="75"
-                            width="75"
+                            height="88"
+                            width="88"
                             radius="9"
                             color="green"
                             ariaLabel="loading"
