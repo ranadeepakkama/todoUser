@@ -99,21 +99,26 @@ const TodoList = () => {
 
     const onChangeCheckbox = async (id) => {
         setCheckedTasks((prev) => ({
-            ...prev, [id]: !prev[id],
-        }))
-        if(id){
+            ...prev,
+            [id]: !prev[id],
+        }));
+    
+        if (id) {
             try {
-                await axios.post(
-                    `${url}/todoPost/${userId}`,
-                    {status: 'done'},
+                await axios.put(
+                    `${url}/updateTodo/${userId}`,
+                    { status: 'done' },
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
                 getApiData();
             } catch (err) {
-                console.error('Error creating todo:', err);
+                console.error('Error updating todo status:', err);
             }
+        } else {
+            console.error('Task ID is required for updating status.');
         }
-    }
+    };
+    
 
     const onChangeFilter = e => {
         const filterData = e.target.value;
