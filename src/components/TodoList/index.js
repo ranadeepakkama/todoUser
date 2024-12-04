@@ -97,11 +97,22 @@ const TodoList = () => {
         }
     };
 
-    const onChangeCheckbox = (id) => {
+    const onChangeCheckbox = async (id) => {
         setCheckedTasks((prev) => ({
             ...prev, [id]: !prev[id],
         }))
-
+        if(id){
+            try {
+                await axios.post(
+                    `${url}/todoPost/${userId}`,
+                    {status: 'done'},
+                    { headers: { Authorization: `Bearer ${token}` } }
+                );
+                getApiData();
+            } catch (err) {
+                console.error('Error creating todo:', err);
+            }
+        }
     }
 
     const onChangeFilter = e => {
