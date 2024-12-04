@@ -101,6 +101,7 @@ const TodoList = () => {
         setCheckedTasks((prev) => ({
             ...prev, [id]: !prev[id],
         }))
+
     }
 
     const onChangeFilter = e => {
@@ -145,7 +146,7 @@ const TodoList = () => {
                         value={filter}
                         onChange={onChangeFilter}
                     >
-                        <option value="">filter</option>
+                        <option value="">Filter by Status</option>
                         <option value="done">Done</option>
                         <option value="pending">Pending</option>
                         <option value="in-progress">In Progress</option>
@@ -196,7 +197,7 @@ const TodoList = () => {
                                                 </>
                                             ) : (
                                                 <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
-                                                    <p className='prg-task' style={{width:'65%', textDecoration: checkedTasks? 'line-through':'normal'}}>{eachItem.task}</p>
+                                                    <p className='prg-task' style={{width:'65%', textDecoration: checkedTasks[eachItem._id]? 'line-through':'none'}}>{eachItem.task}</p>
                                                     <p className='prg-task' style={{width:'25%'}}>{eachItem.status}</p>
                                                     <button
                                                         className="icon-btn"
@@ -217,7 +218,7 @@ const TodoList = () => {
                                                     <input
                                                     type='checkbox' 
                                                     checked={checkedTasks[eachItem._id] || false}
-                                                    onClick={() => onChangeCheckbox(eachItem._id)} 
+                                                    onChange={() => onChangeCheckbox(eachItem._id)} 
                                                     className='checkbox-input'/>
                                                 </div>
                                             )}
