@@ -15,7 +15,7 @@ const TodoList = () => {
     const [editStatus, setEditStatus] = useState('');
     const [editId, setEditId] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [checked, setChecked] = useState(false)
+    const [checkedTasks, setCheckedTasks] = useState({})
     const [filter, setFilter] = useState('')
     const url = 'https://todoserver-k4hr.onrender.com';
     const userId = Cookies.get('user_id');
@@ -97,9 +97,10 @@ const TodoList = () => {
         }
     };
 
-    const onChangeCheckbox = () => {
-        setChecked(check => !check);
-        console.log(checked)
+    const onChangeCheckbox = (id) => {
+        setCheckedTasks((prev) => ({
+            ...prev, [id]: !prev[id],
+        }))
     }
 
     const onChangeFilter = e => {
@@ -195,7 +196,7 @@ const TodoList = () => {
                                                 </>
                                             ) : (
                                                 <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
-                                                    <p className='prg-task' style={{width:'65%', textDecoration: checked? 'line-through':'normal'}}>{eachItem.task}</p>
+                                                    <p className='prg-task' style={{width:'65%', textDecoration: checkedTasks? 'line-through':'normal'}}>{eachItem.task}</p>
                                                     <p className='prg-task' style={{width:'25%'}}>{eachItem.status}</p>
                                                     <button
                                                         className="icon-btn"
@@ -213,7 +214,11 @@ const TodoList = () => {
                                                     >
                                                         <MdOutlineDelete />
                                                     </button>
-                                                    <input type='checkbox' onClick={onChangeCheckbox} className='checkbox-input'/>
+                                                    <input
+                                                    type='checkbox' 
+                                                    checked={checkedTasks[eachItem._id] || false}
+                                                    onClick={() => onChangeCheckbox(eachItem._id)} 
+                                                    className='checkbox-input'/>
                                                 </div>
                                             )}
                                         </div>
