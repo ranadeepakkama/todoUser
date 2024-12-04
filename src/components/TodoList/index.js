@@ -213,7 +213,7 @@ const TodoList = () => {
                                                     >
                                                         <MdOutlineDelete />
                                                     </button>
-                                                    <input type='checkbox' onChange={onChangeCheckbox} className='checkbox-input'/>
+                                                    <input type='checkbox' onClick={onChangeCheckbox} className='checkbox-input'/>
                                                 </div>
                                             )}
                                         </div>
