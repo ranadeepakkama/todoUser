@@ -15,6 +15,7 @@ const TodoList = () => {
     const [editStatus, setEditStatus] = useState('');
     const [editId, setEditId] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [checked, setChecked] = useState(false)
     const [filter, setFilter] = useState('')
     const url = 'https://todoserver-k4hr.onrender.com';
     const userId = Cookies.get('user_id');
@@ -95,6 +96,11 @@ const TodoList = () => {
             setLoading(false);
         }
     };
+
+    const onChangeCheckbox = () => {
+        setChecked(check => !check);
+        console.log(checked)
+    }
 
     const onChangeFilter = e => {
         const filterData = e.target.value;
@@ -189,7 +195,7 @@ const TodoList = () => {
                                                 </>
                                             ) : (
                                                 <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
-                                                    <p className='prg-task' style={{width:'65%'}}>{eachItem.task}</p>
+                                                    <p className='prg-task' style={{width:'65%', textDecoration: checked? 'underline':'normal'}}>{eachItem.task}</p>
                                                     <p className='prg-task' style={{width:'25%'}}>{eachItem.status}</p>
                                                     <button
                                                         className="icon-btn"
@@ -207,6 +213,7 @@ const TodoList = () => {
                                                     >
                                                         <MdOutlineDelete />
                                                     </button>
+                                                    <input type='checkbox' onChange={onChangeCheckbox} className='checkbox-input'/>
                                                 </div>
                                             )}
                                         </div>

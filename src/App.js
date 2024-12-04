@@ -5,7 +5,7 @@ import Register from './components/RegisterPage';
 import UserDetails from './components/UserDetails';
 import NotFound from './components/NotFound';
 import { UserProvider } from './context/userContext';
-import ProtectedRoute from './components/ProtectedRoute';
+//import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => (
   <div>
@@ -13,22 +13,8 @@ const App = () => (
       <Routes>
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />}/>
-        <Route 
-          path='/' 
-          element={
-            <ProtectedRoute>
-              <HomePage />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path='/userDetails' 
-          element={
-            <ProtectedRoute>
-              <UserDetails />
-            </ProtectedRoute>
-          } 
-        />
+        <Route path="/" element={<HomePage />} />
+        <Route path='/UserDetails' element={<UserDetails />} />
         <Route path='*' element={<NotFound/>}/>
       </Routes>
     </UserProvider>
