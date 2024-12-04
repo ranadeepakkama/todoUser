@@ -106,7 +106,7 @@ const TodoList = () => {
         if (id) {
             try {
                 await axios.put(
-                    `${url}/updateTodo/${userId}`,
+                    `${url}/updateCheckBox/${userId}`,
                     { status: 'done' },
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
