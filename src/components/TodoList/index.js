@@ -86,8 +86,8 @@ const TodoList = () => {
     const onClickDelete = async (id) => {
         setLoading(true);
         try {
-            await axios.delete(`${url}/deleteTodo/${id}`, {
-                headers: { Authorization: `Bearer ${token}` },
+            await axios.delete(`${url}/deleteTodo/${id}`,
+                {headers: { Authorization: `Bearer ${token}` },
             });
             getApiData();
         } catch (err) {
@@ -102,6 +102,16 @@ const TodoList = () => {
             ...prev,
             [id]: !prev[id],
         }));
+        if(id){
+            try{
+                await axios.put(`${url}/updateCheckBox/${id}`,
+                    {status: "done" },
+                    {headers: { Authorization: `Bearer ${token}` },
+                })
+            }catch(err){
+                console.error('Error updating todo:', err);
+            }
+        }
     };
     
 
