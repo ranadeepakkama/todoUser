@@ -102,21 +102,6 @@ const TodoList = () => {
             ...prev,
             [id]: !prev[id],
         }));
-    
-        if (id) {
-            try {
-                await axios.put(
-                    `${url}/updateCheckBox/${userId}`,
-                    { status: 'done' },
-                    { headers: { Authorization: `Bearer ${token}` } }
-                );
-                getApiData();
-            } catch (err) {
-                console.error('Error updating todo status:', err);
-            }
-        } else {
-            console.error('Task ID is required for updating status.');
-        }
     };
     
 
