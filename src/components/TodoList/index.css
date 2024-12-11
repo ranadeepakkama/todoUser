@@ -9,6 +9,10 @@
     background-image: url('https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg');
     background-size: cover;
 }
+#submit-btn{
+    width: 70px;
+}
+
 .filter-input{
     margin-left: 10px;
     height: 37px;
@@ -51,6 +55,10 @@ input{
     margin-right: 100px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
     background-color: rgb(209, 249, 250);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .todo-item{
