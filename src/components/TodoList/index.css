@@ -106,11 +106,11 @@ input{
         padding-left: -40px;
     }
     .prg-task{
-        width: 55vw;
+        width: 35vw;
         margin-left: -40px;
     }
     .prg-status{
-        width: 20vw;
+        width: 12vw;
         margin-left: 6px;
     }
     .prg-task, .prg-status{
