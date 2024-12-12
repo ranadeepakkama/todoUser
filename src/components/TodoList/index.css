@@ -37,6 +37,7 @@ li{
 }
 .prg-status{
     width: 14vw;
+    margin-left: 8px;
 }
 
 input{
@@ -96,6 +97,9 @@ input{
     select {
         font-size: 15px;
     }
+    #submit-btn{
+        width: 40px;
+    }
     .todo-list{
         display: flex;
         flex-direction: column;
@@ -105,11 +109,11 @@ input{
         margin-left: 40px;
         padding-left: -40px;
     }
-    .prg-task{
+    .prg-task,.todo-input{
         width: 35vw;
         margin-left: -40px;
     }
-    .prg-status{
+    .prg-status,.todo-status{
         width: 12vw;
         margin-left: 6px;
     }
