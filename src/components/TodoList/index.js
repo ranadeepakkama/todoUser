@@ -138,7 +138,7 @@ const TodoList = () => {
                 />
                 <select
                     name="status"
-                    className="todo-status"
+                    className="todo-input"
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                 >

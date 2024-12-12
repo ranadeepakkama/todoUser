@@ -98,7 +98,7 @@ input{
         font-size: 15px;
     }
     #save-btn{
-        width: 60px;
+        width: 53px;
     }
     .todo-list{
         display: flex;
@@ -109,14 +109,21 @@ input{
         margin-left: 40px;
         padding-left: -40px;
     }
-    .prg-task,.todo-input{
+    .prg-task{
         width: 35vw;
         margin-left: -40px;
     }
+    .todo-input{
+        width: 30vw;
+        margin-left: -40px;
+    }
     
-    .prg-status, .todo-status{
+    .prg-status{
         width: 12vw;
         margin-left: 6px;
+    }
+    .todo-status{
+        width: 20vw;
     }
     
     .prg-task, .prg-status{
