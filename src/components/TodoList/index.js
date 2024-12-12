@@ -182,7 +182,7 @@ const TodoList = () => {
                                     <li key={eachItem._id}>
                                         <div className="todo-item">
                                             {eachItem._id === editId ? (
-                                                <>
+                                                <div className='d-flex justify-content-start align-items-center'>
                                                     <input
                                                         className="todo-input"
                                                         type="text"
@@ -205,7 +205,7 @@ const TodoList = () => {
                                                     >
                                                         Save
                                                     </button>
-                                                </>
+                                                </div>
                                             ) : (
                                                 <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
                                                     <p className='prg-task' style={{width:'75%', textDecoration: checkedTasks[eachItem._id]? 'line-through':'none'}}>{eachItem.task}</p>
