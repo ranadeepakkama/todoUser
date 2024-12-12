@@ -148,7 +148,7 @@ const TodoList = () => {
                     <option value="in-progress">In Progress</option>
                 </select>
 
-                <button type="submit" id = 'save-btn' className="btn btn-primary mb-1">
+                <button type="submit" id = 'submit-btn' className="btn btn-primary mb-1">
                     Submit
                 </button>
                     <select
@@ -202,6 +202,7 @@ const TodoList = () => {
                                                     <button
                                                         className="btn btn-secondary"
                                                         onClick={() => onClickUpdate(eachItem._id)}
+                                                        id='save-btn'
                                                     >
                                                         Save
                                                     </button>

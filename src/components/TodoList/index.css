@@ -50,7 +50,7 @@ input{
     border-width: 0px;
     background-color: transparent;
 }
-.todo-input{
+.todo-input,.todo-status{
     padding: 5px;
 }
 .todo-list{
