@@ -101,6 +101,12 @@ input{
         padding-left: -40px;
     }
     .prg-task{
+        width: 75%;
+    }
+    .prg-status{
+        width: 25%;
+    }
+    .prg-task, .prg-status{
         font-size: 10px;
         padding: 10px;
         margin-left: 6px;
