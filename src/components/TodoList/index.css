@@ -97,8 +97,8 @@ input{
     select {
         font-size: 15px;
     }
-    #submit-btn{
-        width: 40px;
+    #save-btn{
+        width: 60px;
     }
     .todo-list{
         display: flex;
@@ -113,10 +113,12 @@ input{
         width: 35vw;
         margin-left: -40px;
     }
-    .prg-status,.todo-status{
+    
+    .prg-status, .todo-status{
         width: 12vw;
         margin-left: 6px;
     }
+    
     .prg-task, .prg-status{
         font-size: 10px;
         padding: 7px;

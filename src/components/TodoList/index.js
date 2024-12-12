@@ -138,7 +138,7 @@ const TodoList = () => {
                 />
                 <select
                     name="status"
-                    className="todo-input"
+                    className="todo-status"
                     value={status}
                     onChange={(e) => setStatus(e.target.value)}
                 >
@@ -148,7 +148,7 @@ const TodoList = () => {
                     <option value="in-progress">In Progress</option>
                 </select>
 
-                <button type="submit" id = 'submit-btn' className="btn btn-primary mb-1">
+                <button type="submit" id = 'save-btn' className="btn btn-primary mb-1">
                     Submit
                 </button>
                     <select
@@ -191,7 +191,7 @@ const TodoList = () => {
                                                         style={{ width: '50%' }}
                                                     />
                                                     <select
-                                                        className="todo-input"
+                                                        className="todo-status"
                                                         value={editStatus || eachItem.status}
                                                         onChange={(e) => setEditStatus(e.target.value)}
                                                     >
