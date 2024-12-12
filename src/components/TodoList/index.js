@@ -184,14 +184,14 @@ const TodoList = () => {
                                             {eachItem._id === editId ? (
                                                 <div className='d-flex justify-content-start align-items-center'>
                                                     <input
-                                                        className="todo-input"
+                                                        className="update-input"
                                                         type="text"
                                                         value={editTodo}
                                                         onChange={(e) => setEditTodo(e.target.value)}
                                                         style={{ width: '50%' }}
                                                     />
                                                     <select
-                                                        className="todo-status"
+                                                        className="update-status"
                                                         value={editStatus || eachItem.status}
                                                         onChange={(e) => setEditStatus(e.target.value)}
                                                     >
