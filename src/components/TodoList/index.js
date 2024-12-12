@@ -208,7 +208,7 @@ const TodoList = () => {
                                                 </>
                                             ) : (
                                                 <div className='d-flex flex-row justify-content-between align-items-center' style={{fontFamily:'serif', fontSize:'20px', width:'100%'}}>
-                                                    <p className='prg-task' style={{width:'65%', textDecoration: checkedTasks[eachItem._id]? 'line-through':'none'}}>{eachItem.task}</p>
+                                                    <p className='prg-task' style={{width:'75%', textDecoration: checkedTasks[eachItem._id]? 'line-through':'none'}}>{eachItem.task}</p>
                                                     <p className='prg-task' style={{width:'25%'}}>{eachItem.status}</p>
                                                     <button
                                                         className="icon-btn"

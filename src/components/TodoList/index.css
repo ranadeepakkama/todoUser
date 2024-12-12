@@ -95,10 +95,10 @@ input{
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
         width: 85vw;
         margin-left: 40px;
-        padding-left: -20px;
+        padding-left: -40px;
     }
     .prg-task{
         font-size: 10px;
