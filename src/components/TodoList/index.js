@@ -137,6 +137,7 @@ const TodoList = () => {
                     style={{ width: '50vw', marginRight: '10px' }}
                 />
                 <select
+                    aria-label='status-of-todo'
                     name="status"
                     className="todo-input"
                     value={status}
@@ -213,6 +214,7 @@ const TodoList = () => {
                                                     <p className='prg-status'>{eachItem.status}</p>
                                                     <button
                                                         className="icon-btn"
+                                                        aria-label='edit-butn'
                                                         onClick={() => {
                                                             setEditId(eachItem._id);
                                                             setEditTodo(eachItem.task);
@@ -223,15 +225,18 @@ const TodoList = () => {
                                                     </button>
                                                     <button
                                                         className="icon-btn"
+                                                        aria-label='delete-butn'
                                                         onClick={() => onClickDelete(eachItem._id)}
                                                     >
                                                         <MdOutlineDelete />
                                                     </button>
-                                                    <input
-                                                    type='checkbox' 
-                                                    checked={checkedTasks[eachItem._id] || false}
-                                                    onChange={() => onChangeCheckbox(eachItem._id)} 
-                                                    className='checkbox-input'/>
+                                                    <label>
+                                                        <input
+                                                        type='checkbox' 
+                                                        checked={checkedTasks[eachItem._id] || false}
+                                                        onChange={() => onChangeCheckbox(eachItem._id)} 
+                                                        className='checkbox-input'/>
+                                                    </label>
                                                 </div>
                                             )}
                                         </div>
