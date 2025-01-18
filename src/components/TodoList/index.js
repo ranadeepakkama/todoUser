@@ -136,18 +136,21 @@ const TodoList = () => {
                     onChange={(e) => setTodo(e.target.value)}
                     style={{ width: '50vw', marginRight: '10px' }}
                 />
-                <select
-                    aria-label='status-of-todo'
-                    name="status"
-                    className="todo-input"
-                    value={status}
-                    onChange={(e) => setStatus(e.target.value)}
-                >
-                    <option value="">Select Status</option>
-                    <option value="done">Done</option>
-                    <option value="pending">Pending</option>
-                    <option value="in-progress">In Progress</option>
-                </select>
+                <label>
+                    <select
+                        //aria-label='status-of-todo'
+                        name="status"
+                        className="todo-input"
+                        value={status}
+                        onChange={(e) => setStatus(e.target.value)}
+                    >
+                        <option value="">Select Status</option>
+                        <option value="done">Done</option>
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                    </select>
+                </label>
+                
 
                 <button type="submit" id = 'submit-btn' className="btn btn-primary mb-1">
                     Submit
@@ -233,6 +236,7 @@ const TodoList = () => {
                                                     <label>
                                                         <input
                                                         type='checkbox' 
+                                                        aria-label='checkbox'
                                                         checked={checkedTasks[eachItem._id] || false}
                                                         onChange={() => onChangeCheckbox(eachItem._id)} 
                                                         className='checkbox-input'/>
