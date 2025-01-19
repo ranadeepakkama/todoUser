@@ -138,7 +138,7 @@ const TodoList = () => {
                 />
                 <label>
                     <select
-                        //aria-label='status-of-todo'
+                        aria-labelledby='status-of-todo'
                         name="status"
                         className="todo-input"
                         value={status}
@@ -155,6 +155,7 @@ const TodoList = () => {
                 <button type="submit" id = 'submit-btn' className="btn btn-primary mb-1">
                     Submit
                 </button>
+
                     <select
                         aria-labelledby='filter-input'
                         name="filter"
