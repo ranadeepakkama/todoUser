@@ -127,7 +127,7 @@ const TodoList = () => {
     }
     return (
         <div className="todo-container">
-            <form onSubmit={handleSubmit} className="text-center p-3" style={{fontFamily:'serif'}}>
+            <form onSubmit={handleSubmit} name='todo-form' className="text-center p-3" style={{fontFamily:'serif'}}>
                 <input
                     className="todo-input"
                     type="text"
@@ -156,6 +156,7 @@ const TodoList = () => {
                     Submit
                 </button>
                     <select
+                        aria-labelledby='filter-input'
                         name="filter"
                         className="filter-input"
                         value={filter}
@@ -196,6 +197,7 @@ const TodoList = () => {
                                                     />
                                                     <select
                                                         className="update-status"
+                                                        aria-labelledby='update-status'
                                                         value={editStatus || eachItem.status}
                                                         onChange={(e) => setEditStatus(e.target.value)}
                                                     >
