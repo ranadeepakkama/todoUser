@@ -155,19 +155,20 @@ const TodoList = () => {
                 <button type="submit" id = 'submit-btn' className="btn btn-primary mb-1">
                     Submit
                 </button>
-
-                    <select
-                        aria-labelledby='filter-input'
-                        name="filter"
-                        className="filter-input"
-                        value={filter}
-                        onChange={onChangeFilter}
-                    >
-                        <option value="">Filter by Status</option>
-                        <option value="done">Done</option>
-                        <option value="pending">Pending</option>
-                        <option value="in-progress">In Progress</option>
-                    </select>
+                    <label>
+                        <select
+                            aria-labelledby='filter-input'
+                            name="filter"
+                            className="filter-input"
+                            value={filter}
+                            onChange={onChangeFilter}
+                        >
+                            <option value="">Filter by Status</option>
+                            <option value="done">Done</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                        </select>
+                    </label>
             </form>
             <div className='todo-list-container'>
                 {loading ? (
@@ -196,16 +197,19 @@ const TodoList = () => {
                                                         onChange={(e) => setEditTodo(e.target.value)}
                                                         style={{ width: '50%' }}
                                                     />
-                                                    <select
-                                                        className="update-status"
-                                                        aria-labelledby='update-status'
-                                                        value={editStatus || eachItem.status}
-                                                        onChange={(e) => setEditStatus(e.target.value)}
-                                                    >
-                                                        <option value="done">Done</option>
-                                                        <option value="pending">Pending</option>
-                                                        <option value="in-progress">In Progress</option>
-                                                    </select>
+                                                    <label>
+                                                        <select
+                                                            className="update-status"
+                                                            aria-labelledby='update-status'
+                                                            value={editStatus || eachItem.status}
+                                                            onChange={(e) => setEditStatus(e.target.value)}
+                                                        >
+                                                            <option value="done">Done</option>
+                                                            <option value="pending">Pending</option>
+                                                            <option value="in-progress">In Progress</option>
+                                                        </select>
+                                                    </label>
+                                                    
                                                     <button
                                                         className="btn btn-secondary"
                                                         onClick={() => onClickUpdate(eachItem._id)}
