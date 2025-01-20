@@ -1,0 +1,139 @@
+*{
+    box-sizing: border-box;
+}
+.todo-container{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(251, 246, 239);
+    margin-top: 14px;
+    background-image: url('https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg');
+    background-size: cover;
+}
+#submit-btn{
+    width: 70px;
+}
+
+.filter-input{
+    margin-left: 10px;
+    height: 37px;
+    padding-left:4px;
+    font-size: 100%;
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 5px;
+    width: 80px;
+}
+li{
+    list-style-type: none;
+}
+.prg-task, .prg-status{
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: rgb(221, 231, 253);
+}
+.prg-task{
+    width: 35vw;
+}
+.prg-status{
+    width: 14vw;
+    margin-left: 8px;
+}
+
+input{
+    border: solid black 1px;
+    width:20vw;
+    margin-right: 10px;
+}
+
+.icon-btn{
+    border-width: 0px;
+    background-color: transparent;
+}
+.todo-input,.todo-status{
+    padding: 5px;
+}
+.todo-list{
+    padding: 18px;
+    border-radius: 5px;
+    margin: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+    background-color: rgb(209, 249, 250);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.todo-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 768px){
+    .todo-container{
+        width: 100vw;
+        height: 100vh;
+        background-image: url('https://images.pexels.com/photos/2736499/pexels-photo-2736499.jpeg?cs=srgb&dl=pexels-content-pixie-1405717-2736499.jpg&fm=jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .filter-input{
+        margin-top: 10px;
+    }
+    select {
+        font-size: 15px;
+    }
+    #save-btn{
+        width: 53px;
+    }
+    .todo-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 85vw;
+        margin-left: 40px;
+        padding-left: -40px;
+    }
+    .prg-task{
+        width: 35vw;
+        margin-left: -40px;
+    }
+    .update-input{
+        width: 30vw;
+        margin-left: -40px;
+    }
+    .update-input, .update-status{
+        border: solid black 1px;
+        margin-right: 10px;
+        padding: 5px;
+        border-radius: 5px;
+    }
+    
+    .prg-status{
+        width: 12vw;
+        margin-left: 6px;
+    }
+    .update-status{
+        width: 20vw;
+    }
+    
+    .prg-task, .prg-status{
+        font-size: 10px;
+        padding: 7px;
+    }
+}
